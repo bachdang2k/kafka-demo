@@ -26,7 +26,7 @@ public class KafkaMessagePublisher {
 
         try {
 
-            CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send(topic, userDelete);
+            CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send(topic, "hnd", userDelete);
 
             future.whenComplete((result, ex) -> {
 
@@ -49,7 +49,7 @@ public class KafkaMessagePublisher {
 
         try {
 
-            CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send("hnd-user", "key", userDelete);
+            CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send(topic1, "key", userDelete);
 
             future.whenComplete((result, ex) -> {
 

@@ -18,21 +18,19 @@ public class AppKafkaApplication implements CommandLineRunner {
 
     private final KafkaMessagePublisher kafkaPublisher;
 
-    private final KafkaTemplate<String, Object> kafkaTemplate;
-
     @Override
     public void run(String... args) throws Exception {
 
         try {
 
             UserDelete user = UserDelete.builder()
-                    .email("kiennt123@gmail.com")
+                    .email("kiennt0927@vivas.com")
                     .profile_id(1234567891011L)
                     .citizen_id("001200034043")
                     .tenant_id(1)
                     .build();
 
-            kafkaPublisher.sendEventsNew(user);
+            kafkaPublisher.sendEvents(user);
 
         } catch (Exception exception) {
             log.error("loi xay ra ", exception);
